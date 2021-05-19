@@ -16,7 +16,7 @@ public class CalcService implements Converter {
         StringBuilder romanic = new StringBuilder();
         Integer num = number;
         for (Roman value : roman) {
-            while (num > value.getValueOfRoman()) {
+            while (num >= value.getValueOfRoman()) {
                 romanic.append(value.name());
                 num -= value.getValueOfRoman();
             }
@@ -47,8 +47,8 @@ public class CalcService implements Converter {
     @Override
     public String DefineOperator(String number) {
         StringBuilder operator = new StringBuilder();
-        MathematicalSymbol[] symbols = this.mathemacialSymbols;
-        for (MathematicalSymbol symbol : symbols) {
+
+        for (MathematicalSymbol symbol : mathemacialSymbols) {
             if (number.contains(symbol.getMathematic())) {
                 operator.append(symbol.getMathematic());
             }

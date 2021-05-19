@@ -12,6 +12,7 @@ public class CalcManager {
         if (this.calcService.romanNumber(str) && this.calcService.arabicNumber(str)) {
             throw new RuntimeException("Please enter the same type number");
         } else {
+
             String symbolOperate = this.calcService.DefineOperator(str);
             String text = str.replace(symbolOperate, " ");
             String[] numbers = text.split(" ");
@@ -19,11 +20,12 @@ public class CalcManager {
             int secondNumber = this.calcService.ParserToInt(numbers[1]);
             int sum = this.calcService.calculate(firstNumber, secondNumber, symbolOperate);
             if (this.calcService.romanNumber(str)) {
-                System.out.println(this.calcService.romanNumber(str));
+
                 return this.calcService.convertArabicNumberToRoman(sum);
             } else {
                 return sum;
             }
+
 
         }
     }
