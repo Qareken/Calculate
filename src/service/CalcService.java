@@ -15,12 +15,10 @@ public class CalcService implements Converter {
     public String convertArabicNumberToRoman(Integer number) {
         StringBuilder romanic = new StringBuilder();
         Integer num = number;
-        Roman[] var4 = this.roman;
-        int var5 = var4.length;
-
-        for (Roman item : var4) {
-            for (Roman value = item; num >= value.getValueOfRoman(); num = num - value.getValueOfRoman()) {
+        for (Roman value : roman) {
+            while (num > value.getValueOfRoman()) {
                 romanic.append(value.name());
+                num -= value.getValueOfRoman();
             }
         }
 
