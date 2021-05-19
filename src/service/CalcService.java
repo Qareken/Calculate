@@ -18,8 +18,8 @@ public class CalcService implements Converter {
         Roman[] var4 = this.roman;
         int var5 = var4.length;
 
-        for(int var6 = 0; var6 < var5; ++var6) {
-            for(Roman value = var4[var6]; num >= value.getValueOfRoman(); num = num - value.getValueOfRoman()) {
+        for (Roman item : var4) {
+            for (Roman value = item; num >= value.getValueOfRoman(); num = num - value.getValueOfRoman()) {
                 romanic.append(value.name());
             }
         }
@@ -50,9 +50,8 @@ public class CalcService implements Converter {
     public String DefineOperator(String number) {
         StringBuilder operator = new StringBuilder();
         MathematicalSymbol[] symbols = this.mathemacialSymbols;
-        for(int i=0; i<symbols.length; i++){
-            MathematicalSymbol symbol=symbols[i];
-            if(number.contains(symbol.getMathematic())){
+        for (MathematicalSymbol symbol : symbols) {
+            if (number.contains(symbol.getMathematic())) {
                 operator.append(symbol.getMathematic());
             }
         }
